@@ -1,4 +1,3 @@
-// For backend: [['@babel/preset-env', { targets: {node: 'current'} }], '@babel/preset-stage-0']
 const path = require('path');
 
 const loaders = require('./loaders');
