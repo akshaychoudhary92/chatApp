@@ -16,6 +16,17 @@ const cache = {
     }
 };
 
+const css = {
+    loader: 'css-loader',
+    options: {
+        camelCase: true,
+        importLoaders: 2,
+        localIdentName: process.env.NODE_ENV === 'production' ? '[hash:base64]' : '[path][name]__[local]--[hash:base64:5]',
+        minimize: true,
+        modules: true
+    }
+};
+
 const postcss = {
     loader: 'postcss-loader',
     options: {
@@ -47,4 +58,4 @@ const ts = {
     }
 };
 
-module.exports = { babel, cache, postcss, sass, style, thread, ts };
+module.exports = { babel, cache, css, postcss, sass, style, thread, ts };
