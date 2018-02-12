@@ -1,8 +1,8 @@
-const http = require('http');
-const path = require('path');
+import * as http from 'http';
+import * as path from 'path';
 
-const express = require('express');
-const socketIO = require('socket.io');
+import * as express from 'express';
+import * as socketIO from 'socket.io';
 
 // region EXPRESS
 const app = express();
@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 // region SOCKET.IO
 const io = socketIO(server);
 
-io.on('connection', socket => {
-    socket.on('chat message', msg => {
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
         io.emit('chat message', msg);
     });
 });
