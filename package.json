@@ -16,8 +16,15 @@
         "start": "cross-env NODE_ENV=production node app.js"
     },
     "lint-staged": {
-        "*.{scss,sass,css,md,json}": ["prettier --write", "git add"],
-        "*.{js,jsx,ts,tsx}": ["prettier --write", "tslint --project tsconfig.json --fix", "git add"]
+        "*.{scss,sass,css,md,json}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write",
+            "tslint --project tsconfig.json --fix",
+            "git add"
+        ]
     },
     "repository": {
         "type": "git",
