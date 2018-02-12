@@ -28,6 +28,7 @@ export class App extends React.Component {
     componentDidMount () {
         this._socketSetup();
     }
+
     render () {
         const childProps = {
             MessageForm: {
