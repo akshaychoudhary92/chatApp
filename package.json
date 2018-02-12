@@ -59,6 +59,7 @@
         "tslint-language-service": "^0.9.8",
         "typescript": "^2.7.1",
         "uglifyjs-webpack-plugin": "^1.1.8",
-        "webpack": "^3.11.0"
+        "webpack": "^3.11.0",
+        "webpack-node-externals": "^1.6.0"
     }
 }
