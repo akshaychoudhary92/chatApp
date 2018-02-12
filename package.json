@@ -4,6 +4,7 @@
     "description": "A chat app",
     "main": "app.js",
     "scripts": {
+        "build:server": "cross-env WEBPACK_ENV=server webpack --config ./config/webpack",
         "lint": "run-s -n lint:*",
         "lint:prettier": "prettier --config ./config/.prettierrc \"src/**/*\" --write",
         "lint:tslint": "tslint --project tsconfig.json",
@@ -31,6 +32,10 @@
         "socket.io-client": "^2.0.4"
     },
     "devDependencies": {
+        "@babel/core": "^7.0.0-beta.40",
+        "@babel/preset-env": "^7.0.0-beta.40",
+        "@babel/preset-react": "^7.0.0-beta.40",
+        "@babel/preset-stage-0": "^7.0.0-beta.40",
         "@chrisaguilar/tslint-config": "^1.4.2",
         "@types/express": "^4.11.1",
         "@types/morgan": "^1.7.35",
