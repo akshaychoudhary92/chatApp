@@ -8,8 +8,7 @@
         "build:prod": "cross-env NODE_ENV=production run-s build:client build:server",
         "build:server": "cross-env WEBPACK_ENV=server webpack --config webpack",
         "cleanup": "rimraf build app.js",
-        "dev":
-            "concurrently -k --names \"NODEMON,SERVER\" -c \"bgBlue,bgGreen\" \"nodemon app.js\" \"npm run build:server -- --watch\"",
+        "dev": "concurrently -k --names \"NODEMON,SERVER\" -c \"bgBlue,bgGreen\" \"nodemon app.js\" \"npm run build:server -- --watch\"",
         "lint": "run-s -n lint:*",
         "lint:prettier": "prettier \"src/**/*\" --write",
         "lint:tslint": "tslint --project tsconfig.json --fix",
