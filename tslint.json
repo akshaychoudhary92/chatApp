@@ -5,12 +5,14 @@
         "completed-docs": false,
         "jsx-curly-spacing": false,
         "member-access": false,
+        "no-import-side-effect": false,
         "strict-type-predicates": false,
         "typedef": false
     },
     "jsRules": {
         "arrow-parens": [true, "always"],
         "completed-docs": false,
-        "jsx-curly-spacing": false
+        "jsx-curly-spacing": false,
+        "no-import-side-effect": false
     }
 }
