@@ -39,6 +39,7 @@
         "@types/socket.io-client": "^1.4.32",
         "babel-loader": "^8.0.0-beta.0",
         "cache-loader": "^1.2.0",
+        "node-sass": "^4.7.2",
         "npm-run-all": "^4.1.2",
         "postcss-cssnext": "^3.1.0",
         "postcss-loader": "^2.1.0",
@@ -47,8 +48,10 @@
         "style-loader": "^0.20.1",
         "thread-loader": "^1.1.2",
         "ts-loader": "^3.5.0",
+        "tsconfig-paths-webpack-plugin": "^2.0.0",
         "tslint": "^5.9.1",
         "tslint-language-service": "^0.9.8",
-        "typescript": "^2.7.1"
+        "typescript": "^2.7.1",
+        "webpack": "^3.11.0"
     }
 }
