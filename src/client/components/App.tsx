@@ -1,13 +1,12 @@
 import * as React from 'react';
 import * as io from 'socket.io-client';
 
-import * as styles from '~/client/styles/App.scss';
-
-const { hot } = require('react-hot-loader');
+// import * as styles from '~/client/styles/App.scss';
+import { MessageForm, MessageList } from '~client/components';
 
 const socket = io();
 
-class App extends React.Component {
+export class App extends React.Component {
     state = {
         message: '',
         messages: []
@@ -29,26 +28,23 @@ class App extends React.Component {
     componentDidMount () {
         this._socketSetup();
     }
-
     render () {
-        const messages = this.state.messages.map((msg, i) => <li key={i}>{msg}</li>);
+        const childProps = {
+            MessageForm: {
+                handleChange: this._handleChange,
+                handleSubmit: this._handleSubmit,
+                message: this.state.message
+            },
+            MessageList: {
+                messages: this.state.messages
+            }
+        };
 
         return (
-            <div>
-                <ul className={styles.messages}>{messages}</ul>
-                <form className={styles.messageForm} onSubmit={this._handleSubmit}>
-                    <input
-                        className={styles.messageInput}
-                        value={this.state.message}
-                        onChange={this._handleChange}
-                        autoComplete='off'
-                    />
-                    <input className={styles.messageSend} type='submit' value='Send' />
-                </form>
-            </div>
+            <React.Fragment>
+                <MessageList {...childProps.MessageList} />
+                <MessageForm {...childProps.MessageForm} />
+            </React.Fragment>
         );
     }
 }
-
-// tslint:disable-next-line:no-default-export
-export default hot(module)(App);
