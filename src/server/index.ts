@@ -4,6 +4,8 @@ import * as path from 'path';
 import * as express from 'express';
 import * as socketIO from 'socket.io';
 
+import { webpackMiddleware } from '~server/webpack';
+
 // region EXPRESS
 const app = express();
 const server = http.createServer(app);
@@ -11,11 +13,14 @@ const server = http.createServer(app);
 app.set('port', process.env.PORT || 8080);
 const port = app.get('port');
 
-app.use('/js', express.static(path.join(__dirname, 'javascript')));
-app.use('/css', express.static(path.join(__dirname, 'css')));
+if (process.env.NODE_ENV !== 'production') {
+    app.use(require('morgan')('dev'));
+    webpackMiddleware(app);
+}
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+app.use('/public/', express.static(path.join(__dirname, 'build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build/index.html'));
 });
 // endregion EXPRESS
 
