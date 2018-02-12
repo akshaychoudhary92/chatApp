@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/akshaychoudhary92/chatApp/issues"
   },
-  "homepage": "https://github.com/akshaychoudhary92/chatApp#readme"
+  "homepage": "https://github.com/akshaychoudhary92/chatApp#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4"
+  }
 }
