@@ -1,0 +1,9 @@
+{
+    "extends": "@chrisaguilar/tslint-config",
+    "rules": {
+        "completed-docs": false
+    },
+    "jsRules": {
+        "completed-docs": false
+    }
+}
