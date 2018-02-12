@@ -10,7 +10,15 @@ const client = {
         {
             test: /\.[jt]sx?/,
             include: path.join(process.cwd(), 'src/client'),
-            use: [cache, thread, babel, ts]
+            use: [
+                cache,
+                thread,
+                babel(
+                    ['@babel/preset-env', '@babel/preset-stage-0', '@babel/preset-react'],
+                    ['react-hot-loader/babel']
+                ),
+                ts
+            ]
         },
         {
             test: /\.(s[ac]|c)ss$/,
@@ -20,23 +28,21 @@ const client = {
     ]
 };
 
-client.rules[0].use[2].options = {
-    plugins: ['react-hot-loader/babel'],
-    presets: ['@babel/preset-env', '@babel/preset-stage-0', '@babel/preset-react']
-};
+console.log(path.join(process.cwd(), 'src/client'));
 
 const server = {
     rules: [
         {
             test: /\.[jt]s?/,
             include: path.join(process.cwd(), 'src/server'),
-            use: [cache, thread, babel, ts]
+            use: [
+                cache,
+                thread,
+                babel([['@babel/preset-env', { targets: { node: 'current' } }], '@babel/preset-stage-0']),
+                ts
+            ]
         }
     ]
-};
-
-client.rules[0].use[2].options = {
-    presets: [['@babel/preset-env', { targets: {node: 'current'} }], '@babel/preset-stage-0']
 };
 
 module.exports = { client, server };

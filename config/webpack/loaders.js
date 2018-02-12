@@ -1,13 +1,10 @@
 const os = require('os');
 const path = require('path');
 
-const babel = {
+const babel = (presets, plugins) => ({
     loader: 'babel-loader',
-    options: {
-        plugins: [],
-        presets: []
-    }
-};
+    options: { plugins, presets }
+});
 
 const cache = {
     loader: 'cache-loader',
