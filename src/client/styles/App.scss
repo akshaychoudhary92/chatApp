@@ -1,0 +1,9 @@
+.main {
+    color: yellow;
+    background: black;
+
+    &:hover {
+        color: black;
+        background: yellow;
+    }
+}
