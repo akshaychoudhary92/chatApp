@@ -1,7 +1,9 @@
 {
     "extends": "@chrisaguilar/tslint-config",
     "rules": {
-        "completed-docs": false
+        "completed-docs": false,
+        "strict-type-predicates": false,
+        "typedef": false
     },
     "jsRules": {
         "completed-docs": false
