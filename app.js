@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 });
 // endregion EXPRESS
 
-// region SOCKET.io
+// region SOCKET.IO
 
 const io = socketIO(server);
 
@@ -26,6 +26,6 @@ io.on('connection', socket => {
     console.log('A user connected');
 });
 
-// endregion SOCKET.io
+// endregion SOCKET.IO
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
