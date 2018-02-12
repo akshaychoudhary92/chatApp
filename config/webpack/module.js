@@ -29,7 +29,7 @@ const server = {
     rules: [
         {
             test: /\.[jt]s?/,
-            include: path.join(process.cwd(), 'src/client'),
+            include: path.join(process.cwd(), 'src/server'),
             use: [cache, thread, babel, ts]
         }
     ]
