@@ -4,6 +4,7 @@
         "arrow-parens": [true, "always"],
         "completed-docs": false,
         "jsx-curly-spacing": false,
+        "jsx-no-multiline-js": false,
         "linebreak-style": false,
         "member-access": false,
         "no-import-side-effect": false,
@@ -14,7 +15,9 @@
         "arrow-parens": [true, "always"],
         "completed-docs": false,
         "jsx-curly-spacing": false,
+        "jsx-no-multiline-js": false,
         "linebreak-style": false,
-        "no-import-side-effect": false
+        "no-import-side-effect": false,
+        "prefer-readonly": false
     }
 }
