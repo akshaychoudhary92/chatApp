@@ -9,7 +9,8 @@ const socket = io();
 export class App extends React.Component {
     state = {
         message: '',
-        messages: []
+        messages: [],
+        username: ''
     };
 
     _handleChange = (e) => this.setState({ message: e.target.value });
@@ -17,8 +18,14 @@ export class App extends React.Component {
     _handleSubmit = (e) => {
         e.preventDefault();
         if (!this.state.message) return;
-        socket.emit('chat message', this.state.message);
-        this.setState({ message: '' });
+        if (!this.state.username) {
+            this.setState({ username: this.state.message, message: '' });
+
+            return;
+        } else {
+            socket.emit('chat message', { username: this.state.username, message: this.state.message });
+            this.setState({ message: '' });
+        }
     };
 
     _socketSetup = () => {
@@ -34,7 +41,8 @@ export class App extends React.Component {
             MessageForm: {
                 handleChange: this._handleChange,
                 handleSubmit: this._handleSubmit,
-                message: this.state.message
+                message: this.state.message,
+                username: this.state.username
             },
             MessageList: {
                 messages: this.state.messages

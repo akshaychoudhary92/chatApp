@@ -20,7 +20,11 @@
             "prettier --write",
             "git add"
         ],
-        "*.{js,jsx,ts,tsx}": [
+        "*.{js,jsx}": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.{ts,tsx}": [
             "prettier --write",
             "tslint --project tsconfig.json --fix",
             "git add"

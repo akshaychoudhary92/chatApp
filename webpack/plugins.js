@@ -61,6 +61,9 @@ const server = [
 
 if (process.env.NODE_ENV === 'production') {
     client.push(
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
+        }),
         new UglifyJsPlugin({
             cache: true,
             parallel: true,
