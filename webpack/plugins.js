@@ -1,3 +1,4 @@
+// tslint:disable:object-literal-sort-keys
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -67,7 +68,7 @@ if (process.env.NODE_ENV === 'production') {
                 compress: true
             }
         })
-    )
+    );
 } else {
     client.push(
         new HtmlWebpackHarddiskPlugin(),

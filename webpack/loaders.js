@@ -18,7 +18,8 @@ const css = {
     options: {
         camelCase: true,
         importLoaders: 2,
-        localIdentName: process.env.NODE_ENV === 'production' ? '[hash:base64]' : '[path][name]__[local]--[hash:base64:5]',
+        localIdentName:
+            process.env.NODE_ENV === 'production' ? '[hash:base64]' : '[path][name]__[local]--[hash:base64:5]',
         minimize: true,
         modules: true
     }

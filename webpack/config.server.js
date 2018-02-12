@@ -1,3 +1,4 @@
+// tslint:disable:object-literal-sort-keys
 const path = require('path');
 
 const webpackNodeExternals = require('webpack-node-externals');
@@ -8,6 +9,11 @@ const resolve = require('./resolve');
 
 const server = {
     context: process.cwd(),
+    target: 'node',
+    node: {
+        __dirname: false,
+        __filename: false
+    },
     entry: path.join(process.cwd(), 'src/server/index.ts'),
     output: {
         filename: 'app.js',
@@ -16,11 +22,6 @@ const server = {
     module: serverModule,
     resolve,
     externals: [webpackNodeExternals()],
-    target: 'node',
-    node: {
-        __dirname: false,
-        __filename: false
-    },
     plugins: serverPlugins
 };
 

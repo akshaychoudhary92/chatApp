@@ -1,3 +1,4 @@
+// tslint:disable:object-literal-sort-keys
 const path = require('path');
 
 const loaders = require('./loaders');

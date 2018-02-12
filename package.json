@@ -4,15 +4,21 @@
     "description": "A chat app",
     "main": "app.js",
     "scripts": {
-        "build:client": "cross-env WEBPACK_ENV=client webpack --config ./config/webpack",
+        "build:client": "cross-env WEBPACK_ENV=client webpack --config webpack",
         "build:prod": "cross-env NODE_ENV=production run-s build:client build:server",
-        "build:server": "cross-env WEBPACK_ENV=server webpack --config ./config/webpack",
+        "build:server": "cross-env WEBPACK_ENV=server webpack --config webpack",
         "cleanup": "rimraf build app.js",
-        "dev": "concurrently -k --names \"NODEMON,SERVER\" -c \"bgBlue,bgGreen\" \"nodemon --config ./config/nodemon.json app.js\" \"npm run build:server -- --watch\"",
+        "dev":
+            "concurrently -k --names \"NODEMON,SERVER\" -c \"bgBlue,bgGreen\" \"nodemon app.js\" \"npm run build:server -- --watch\"",
         "lint": "run-s -n lint:*",
-        "lint:prettier": "prettier --config ./config/.prettierrc \"src/**/*\" --write",
-        "lint:tslint": "tslint --project tsconfig.json",
+        "lint:prettier": "prettier \"src/**/*\" --write",
+        "lint:tslint": "tslint --project tsconfig.json --fix",
+        "precommit": "lint-staged",
         "start": "cross-env NODE_ENV=production node app.js"
+    },
+    "lint-staged": {
+        "*.{scss,sass,css,md,json}": ["prettier --write", "git add"],
+        "*.{js,jsx,ts,tsx}": ["prettier --write", "tslint --project tsconfig.json --fix", "git add"]
     },
     "repository": {
         "type": "git",
@@ -60,6 +66,8 @@
         "html-webpack-harddisk-plugin": "^0.1.0",
         "html-webpack-plugin": "^2.30.1",
         "html-webpack-template": "^6.1.0",
+        "husky": "^0.14.3",
+        "lint-staged": "^6.1.0",
         "node-sass": "^4.7.2",
         "nodemon": "^1.14.12",
         "npm-run-all": "^4.1.2",

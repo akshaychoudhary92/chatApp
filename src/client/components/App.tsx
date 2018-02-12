@@ -23,7 +23,7 @@ class App extends React.Component {
     };
 
     _socketSetup = () => {
-        socket.on('chat message', (msg) => this.setState({ messages: [...this.state.messages, msg ] }));
+        socket.on('chat message', (msg) => this.setState({ messages: [...this.state.messages, msg] }));
     };
 
     componentDidMount () {

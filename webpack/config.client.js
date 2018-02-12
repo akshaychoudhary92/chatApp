@@ -1,3 +1,4 @@
+// tslint:disable:object-literal-sort-keys
 const path = require('path');
 
 const { client: clientModule } = require('./module');
